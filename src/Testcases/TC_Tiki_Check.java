@@ -77,7 +77,7 @@ public class TC_Tiki_Check{
         Thread.sleep(2000);
         TikiAddToCartAction.clickAdd(driver);
         //Step8: Click on "Thoát tài khoản" button.
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//div[@id='header-user']//b[text()='Chào ' and text()='"+ dynamicName +"']")).click();
         TikiLogoutAction.clickLogout(driver);
