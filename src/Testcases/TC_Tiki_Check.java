@@ -25,7 +25,7 @@ public class TC_Tiki_Check{
     @Before
     public void setup()
     {
-        System.setProperty("webdriver.chrome.driver", ".\\src\\Resources\\Drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", ".\\src\\Resources\\DriverChrome\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications"); //vô hiệu hóa thông báo chrome
         options.addArguments("--disable-popup-blocking");
@@ -56,9 +56,11 @@ public class TC_Tiki_Check{
     //Summary: Verify that the products of cart still displayed when the user log out then login successfully.
     public void TC_Tiki_Check() throws InterruptedException {
         //Step1: Hover on "Đăng nhập" field and click on "Đăng nhập" link.
+        Thread.sleep(2000);
         TikiLoginAction.clickOnDangNhap1(driver);
         TikiLoginAction.clickOnDangNhap2(driver);
         //Step2: Enter all valid data in all field of Login form.
+        Thread.sleep(2000);
         TikiLoginAction.enterEmailAndPassword(driver,user.getProperty("userid"),user.getProperty("password"));
         //Step3: Click on "Đăng nhập" button.
         TikiLoginAction.clickOnLoginButton(driver);
@@ -71,8 +73,8 @@ public class TC_Tiki_Check{
         //Step6: Click on a product.
         Thread.sleep(2000);
         TikiAddToCartAction.clickProduct(driver);
-        ArrayList<String> tags = new ArrayList<String>(driver.getWindowHandles());
-        driver.switchTo().window(tags.get(1));
+//        ArrayList<String> tags = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tags.get(1));
         //Step7: Click on "CHỌN MUA" button.
         Thread.sleep(2000);
         TikiAddToCartAction.clickAdd(driver);
@@ -85,6 +87,7 @@ public class TC_Tiki_Check{
         Thread.sleep(2000);
         TikiLoginAction.clickOnDangNhap1(driver);
         TikiLoginAction.clickOnDangNhap2(driver);
+        Thread.sleep(2000);
         TikiLoginAction.enterEmailAndPassword(driver,user.getProperty("userid"),user.getProperty("password"));
         TikiLoginAction.clickOnLoginButton(driver);
         //Step10: Click on "Giỏ hàng" button.
